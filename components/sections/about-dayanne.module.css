@@ -1,0 +1,32 @@
+.copy { max-width: 480px; margin-left: clamp(40px, 4vw, 64px); padding-left: 0; }
+.headline { font-size: clamp(3.7rem, 5.4vw, 5.8rem) !important; white-space: nowrap; }
+.text { max-width: 470px !important; }
+.marker { margin-top: 26px !important; margin-bottom: 16px !important; font-size: 11px !important; letter-spacing: .08em; opacity: .76; }
+.roles { margin-top: 28px !important; font-size: 11px !important; font-weight: 600; letter-spacing: .08em; }
+@media(max-width:800px){
+  .copy{
+    max-width: 100%;
+    margin-left: 0;
+    padding: 0 20px 44px;
+    margin-top: auto;
+    z-index: 2;
+  }
+  .headline{
+    white-space: normal;
+    font-size: clamp(2.4rem, 11vw, 3.6rem) !important;
+    line-height: 0.94 !important;
+  }
+  .text{
+    max-width: 100% !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    margin: 12px 0 0 !important;
+    color: rgba(255,255,255,0.92) !important;
+  }
+  .roles{
+    margin-top: 18px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.12em !important;
+    color: var(--pink) !important;
+  }
+}

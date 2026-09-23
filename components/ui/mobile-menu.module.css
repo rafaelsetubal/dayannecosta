@@ -1,0 +1,53 @@
+.menu {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .menu {
+    display: block;
+    position: relative;
+    z-index: 20;
+    justify-self: end;
+  }
+  .trigger {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    background: rgba(11, 11, 13, 0.45);
+    color: #fff;
+    backdrop-filter: blur(14px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .trigger:active {
+    transform: scale(0.94);
+  }
+  .panel {
+    position: absolute;
+    top: 52px;
+    right: 0;
+    display: grid;
+    min-width: 220px;
+    padding: 10px;
+    background: rgba(11, 11, 13, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5);
+  }
+  .panel a {
+    padding: 14px 16px;
+    color: #fff;
+    font: 700 12px var(--body);
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    transition: background 0.15s ease;
+  }
+  .panel a:hover,
+  .panel a:active {
+    background: var(--pink);
+  }
+}

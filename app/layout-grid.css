@@ -1,0 +1,8 @@
+@media (min-width: 1441px) {
+  :root { --page-gutter: max(40px, calc((100vw - 1440px) / 2)); }
+
+  .topbar { padding-left: var(--page-gutter); padding-right: var(--page-gutter); }
+  .hero-copy, .hero-stats { left: var(--page-gutter); }
+  .hero-bottom { right: var(--page-gutter); }
+  .world, .content, .kit, footer { padding-left: var(--page-gutter); padding-right: var(--page-gutter); }
+}

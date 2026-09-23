@@ -1,0 +1,160 @@
+.section {
+  background: var(--off);
+  padding: 140px 0;
+  overflow: hidden;
+}
+.header {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 50px;
+}
+.header h2 {
+  font-size: clamp(3.6rem, 6.2vw, 7rem);
+  letter-spacing: -0.045em;
+}
+.headerSide {
+  display: grid;
+  justify-items: end;
+  gap: 24px;
+}
+.headerSide > p {
+  max-width: 320px;
+  line-height: 1.5;
+  color: #333;
+}
+.controls {
+  display: flex;
+  gap: 10px;
+}
+.controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--black);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+.controls button:hover {
+  background: var(--black);
+  color: #fff;
+  transform: scale(1.05);
+}
+.controls button:active {
+  transform: scale(0.95);
+}
+.marquee {
+  margin-top: 54px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px max(40px, calc((100vw - 1440px) / 2));
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  touch-action: pan-x pan-y;
+}
+.marquee::-webkit-scrollbar {
+  display: none;
+}
+.track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+}
+.item {
+  flex: 0 0 clamp(220px, 18vw, 300px);
+}
+.frame {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--black);
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16);
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+  user-select: none;
+}
+.frame:hover {
+  transform: translateY(-6px);
+}
+.frame img,
+.frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.frameShade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  transition: background 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+.frame:hover .frameShade {
+  background: rgba(0, 0, 0, 0.22);
+}
+.logoCenter {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  pointer-events: none;
+  text-align: center;
+  padding: 0 16px;
+}
+.logoText {
+  color: #fff;
+  font: 700 clamp(2.3rem, 3.2vw, 3.8rem) / 0.9 var(--display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.75), 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 800px) {
+  .section {
+    padding: 80px 0;
+  }
+  .header {
+    padding: 0 20px;
+    display: block;
+  }
+  .headerSide {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 24px;
+    gap: 16px;
+  }
+  .headerSide > p {
+    font-size: 13px;
+    max-width: 220px;
+    margin: 0;
+  }
+  .marquee {
+    margin-top: 28px;
+    padding: 16px 20px;
+  }
+  .track {
+    gap: 14px;
+  }
+  .item {
+    flex: 0 0 54vw;
+  }
+  .controls button {
+    width: 38px;
+    height: 38px;
+  }
+  .logoText {
+    font-size: clamp(2rem, 8.5vw, 2.6rem);
+  }
+}
