@@ -35,7 +35,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 75%) !important;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.45) 38%, rgba(0, 0, 0, 0.08) 68%, transparent 100%) !important;
   z-index: 1;
   pointer-events: none;
 }
@@ -54,16 +54,64 @@
 .fashionCurrent { z-index: 2; animation: fashionCrossfade 900ms cubic-bezier(.22,1,.36,1); }
 @keyframes fashionCrossfade { from { opacity: 0; transform: scale(1.012); } to { opacity: 1; transform: scale(1); } }
 
-.label { display: grid; grid-template-columns: auto 1fr auto; column-gap: 10px; align-items: end; }
-.number { grid-column: 1; grid-row: 1; align-self: start; font-size: 9px; font-weight: 600; letter-spacing: .1em; opacity: .72; }
-.label h3 { grid-column: 2; grid-row: 1; }
-.microcopy { grid-column: 2; grid-row: 2; margin: 8px 0 0 !important; max-width: 180px; font: 500 11px/1.35 var(--body); text-transform: none; letter-spacing: 0; opacity: 0; transform: translateY(7px); transition: opacity 300ms cubic-bezier(.22,1,.36,1), transform 300ms cubic-bezier(.22,1,.36,1); }
-.label svg { grid-column: 3; grid-row: 1; position: static; transition: transform 300ms cubic-bezier(.22,1,.36,1); }
-@media (hover: hover) { .grid:hover .card { opacity: .85; transition: opacity 300ms cubic-bezier(.22,1,.36,1), transform 300ms cubic-bezier(.22,1,.36,1); } .grid:hover .card:hover { opacity: 1; transform: scale(1.025); z-index: 2; } .card:hover .microcopy { opacity: 1; transform: translateY(0); } .card:hover .label svg { transform: translate(5px, -5px); } .card:hover .label h3 { letter-spacing: .01em; } }
+.cardInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 20px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  pointer-events: none;
+}
+
+.cardNumber {
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--pink, #F52B83);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+}
+
+.cardTitle {
+  font-family: var(--display);
+  font-size: clamp(2.3rem, 2.7vw, 3.4rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 0, 0, 0.6);
+}
+
+.microcopy {
+  margin: 6px 0 0 !important;
+  font: 500 12px/1.35 var(--body);
+  color: rgba(255, 255, 255, 0.88);
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.95;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+@media (hover: hover) {
+  .grid:hover .card { opacity: .85; transition: opacity 300ms cubic-bezier(.22,1,.36,1), transform 300ms cubic-bezier(.22,1,.36,1); }
+  .grid:hover .card:hover { opacity: 1; transform: scale(1.025); z-index: 2; }
+  .card:hover .cardTitle { letter-spacing: 0.01em; color: #fff; }
+}
 
 @media (max-width: 800px) {
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   .card { aspect-ratio: 9 / 14; }
-  .card:nth-child(2), .card:nth-child(4) { margin-top: 42px !important; }
+  .card:nth-child(2), .card:nth-child(4) { margin-top: 36px !important; }
   .card:nth-child(3) { margin-top: 0 !important; }
+  .cardInfo { padding: 18px 14px; }
+  .cardTitle { font-size: clamp(2rem, 7.8vw, 2.7rem); }
+  .microcopy { font-size: 11px; }
 }

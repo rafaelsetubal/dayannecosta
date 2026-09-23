@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -53,8 +52,29 @@ export function WorldMediaGrid() {
     return () => context.revert();
   }, []);
 
-  return <div className={`world-grid ${styles.grid}`} ref={grid}>{media.map((item) => <article className={`world-card media-card ${item.className} ${styles.card}`} data-world-card key={item.title}>
-    <div className={`world-motion ${styles.motion}`} data-world-motion>{item.label === "MODA" ? <><img className={`${styles.fashionImage} ${styles.fashionPrevious} world-video`} src={fashionPhotos[previousFashionSlide]} alt="" aria-hidden="true"/><img key={fashionSlide} className={`${styles.fashionImage} ${styles.fashionCurrent} world-video`} src={fashionPhotos[fashionSlide]} alt="Dayanne Costa em editorial de moda" /></> : <div className={`world-motion-inner ${styles.motionInner}`}><video className="world-video" autoPlay muted playsInline loop preload="auto" src={item.video} aria-label={`Vídeo de ${item.title}`} /></div>}</div>
-    <div className={styles.label}><span className={styles.number}>{item.number}</span><h3>{item.label}</h3><p className={styles.microcopy}>{item.microcopy}</p><ArrowUpRight/></div>
-  </article>)}</div>;
+  return (
+    <div className={`world-grid ${styles.grid}`} ref={grid}>
+      {media.map((item) => (
+        <article className={`world-card media-card ${item.className} ${styles.card}`} data-world-card key={item.title}>
+          <div className={`world-motion ${styles.motion}`} data-world-motion>
+            {item.label === "MODA" ? (
+              <>
+                <img className={`${styles.fashionImage} ${styles.fashionPrevious} world-video`} src={fashionPhotos[previousFashionSlide]} alt="" aria-hidden="true"/>
+                <img key={fashionSlide} className={`${styles.fashionImage} ${styles.fashionCurrent} world-video`} src={fashionPhotos[fashionSlide]} alt="Dayanne Costa em editorial de moda" />
+              </>
+            ) : (
+              <div className={`world-motion-inner ${styles.motionInner}`}>
+                <video className="world-video" autoPlay muted playsInline loop preload="auto" src={item.video} aria-label={`Vídeo de ${item.title}`} />
+              </div>
+            )}
+          </div>
+          <div className={styles.cardInfo}>
+            <span className={styles.cardNumber}>{item.number}</span>
+            <h3 className={styles.cardTitle}>{item.label}</h3>
+            <p className={styles.microcopy}>{item.microcopy}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
 }
