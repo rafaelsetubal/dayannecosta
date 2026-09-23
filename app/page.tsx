@@ -16,6 +16,6 @@ export default function Home() {
     <BrandsEditorial />
     <CommunityHub />
     <section className="kit"><p className="eyebrow light">PARCERIAS &amp; PROJETOS</p><h2>VAMOS CRIAR<br/><i>ALGO FORTE.</i></h2><div><p>Apresentação, formatos e oportunidades para marcas que se movem com propósito.</p><a className="dark-button" href="#contato">SOLICITAR MÍDIA KIT <ArrowDownRight size={17}/></a></div></section>
-    <footer id="contato"><p className="eyebrow light">CONTATO</p><h2>FALA<br/><i>COMIGO.</i></h2><a className="mail" href="mailto:contato@dayannecosta.com">CONTATO@DAYANNECOSTA.COM <ArrowUpRight/></a><div className="footer-bottom"><a className="brand" href="#inicio">DAYANNE<br/>COSTA<span>.</span></a><p>© 2026 DAYANNE COSTA.</p><p>INSTAGRAM &nbsp; TIKTOK</p></div></footer>
+    <footer id="contato"><p className="eyebrow light">CONTATO</p><h2>FALA<br/><i>COMIGO.</i></h2><a className="mail" href="mailto:contato@dayannecosta.com">CONTATO@DAYANNECOSTA.COM <ArrowUpRight/></a><div className="footer-bottom"><a className="brand" href="#inicio">DAYANNE<br/>COSTA<span>.</span></a><p>© 2026 DAYANNE COSTA.</p><p className="footer-credit">DESENVOLVIDO POR <a href="https://lp.marzcreativedesign.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "inherit", opacity: 0.9 }}>RAFAEL SETUBAL</a></p></div></footer>
   </main>;
 }
